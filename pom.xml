@@ -41,12 +41,11 @@
 
 
         <plugin>
-          <groupId>org.Apache.maven.plugins</groupId>
-          <artifactId>maven-compiler-plugin</artifactId>
-          <version>3.0</version>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-war-plugin</artifactId>
+          <version>2.1.1</version>
           <configuration>
-            <source>${jdk.version}</source>
-            <target>${jdk.version}</target>
+            <warName>tp3</warName>
           </configuration>
         </plugin>
 
