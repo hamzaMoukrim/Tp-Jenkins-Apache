@@ -1,31 +1,21 @@
-pipeline {
-environment {
-registry = "hamzamoukrim/Tp-Docker"
-registryCredential = 'dockerhub'
-dockerImage = ''
-}
-agent any
-stages {
- stage('Build') {
- steps {
- sh 'mvn package'
- }
- }
-stage('Building image') {
-steps{
- script {
- dockerImage = docker.build registry + ":$BUILD_NUMBER"
- }
- }
- }
-stage('Deploy Image') {
-steps{
- script {
- docker.withRegistry( '', registryCredential ) {
- dockerImage.push()
- }
- }
- }
-}
-}
+pipeline{
+    agent any
+    tools {
+        maven 'MAVEN'
+    }
+    stages {
+        stage('Build') {
+               steps {
+               sh 'mvn package'
+                    }
+                 }
+        stage('Build Docker Image') {
+            steps {
+                script {
+                  sh 'docker build -t hamzamoukrim/Tp-Docker .'
+                }
+            }
+        }
+     
+    }
 }
