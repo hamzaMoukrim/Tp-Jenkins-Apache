@@ -1,5 +1,11 @@
 pipeline{
-    agent any
+   
+    environment {
+registry = "hamzamoukrim/tp-docker"
+registryCredential = 'dockerhub'
+dockerImage = ''
+}
+  agent any
     stages {
         stage('Build') {
                steps {
@@ -13,6 +19,16 @@ pipeline{
                 }
             }
         }
+        
+        stage('Deploy Image') {
+steps{
+ script {
+ docker.withRegistry( '', registryCredential ) {
+ dockerImage.push()
+ }
+ }
+ }
+}
      
     }
 }
