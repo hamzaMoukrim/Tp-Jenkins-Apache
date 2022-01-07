@@ -1,4 +1,4 @@
 FROM openjdk
-COPY target/Tp-Docker.war /
+COPY target/tp-docker.war /
 EXPOSE 8080
-ENTRYPOINT ["java","-jar","/Tp-Docker.war"]
+ENTRYPOINT ["java","-jar","/tp-docker.war"]
