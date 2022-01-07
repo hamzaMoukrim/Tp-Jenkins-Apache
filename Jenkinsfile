@@ -21,13 +21,13 @@ dockerImage = ''
         }
         
         stage('Deploy Image') {
-steps{
- script {
- docker.withRegistry( '', registryCredential ) {
- dockerImage.push()
- }
- }
- }
+                  steps{
+                   script {
+                   docker.withRegistry( '', registryCredential ) {
+                   sh 'docker push hamzamoukrim/tp-docker'
+                   }
+                   }
+                   }
 }
      
     }
