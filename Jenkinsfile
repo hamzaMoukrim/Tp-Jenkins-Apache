@@ -1,7 +1,7 @@
 pipeline{
    
     environment {
-registry = "hamzamoukrim/tp-docker"
+registry = "marone1822/tp-docker"
 registryCredential = 'dockerhub'
 dockerImage = ''
 }
@@ -15,7 +15,7 @@ dockerImage = ''
         stage('Build Docker Image') {
             steps {
                 script {
-                  sh 'docker build -t hamzamoukrim/tp-docker .'
+                  sh 'docker build -t marone1822/tp-docker .'
                 }
             }
         }
